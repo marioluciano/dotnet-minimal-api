@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-
 public class EmployeeDBContext : DbContext
 {
     public EmployeeDBContext(DbContextOptions options) : base(options)
@@ -7,5 +5,11 @@ public class EmployeeDBContext : DbContext
 
     }
 
-    public DbSet<Employee>? Employees { get; set; }
+    // protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    // {
+    //     modelBuilder.HasDefaultSchema("public");
+    //     base.OnModelCreating(modelBuilder);
+    // }
+
+    public DbSet<Employee>? Employees => Set<Employee>();
 }
